@@ -47,7 +47,7 @@ namespace AspNetCore
             WriteLiteral("<!DOCTYPE=html>\r\n<html>\r\n   ");
             EndContext();
             BeginContext(81, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f02b0bb7e7a441489dc78bc129b792de", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75bc4b5d5d846c097923473272a096c", async() => {
                 BeginContext(87, 57, true);
                 WriteLiteral("\r\n      <link rel=\"stylesheet\" href=\"\\css\\main.css\">\r\n   ");
                 EndContext();
@@ -67,12 +67,12 @@ namespace AspNetCore
             WriteLiteral("\r\n   ");
             EndContext();
             BeginContext(156, 505, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ad5b626e20d40b29c81ffe04cd5c95c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b130c8319372439b8a22d15bcf3d8d46", async() => {
                 BeginContext(162, 160, true);
                 WriteLiteral("\r\n       <header>\r\n           <h1>Silly Styles!</h1>\r\n           <nav class=\"header-nav\">\r\n               <ul>\r\n                   <li>\r\n                       ");
                 EndContext();
                 BeginContext(322, 52, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93edf27dba7640b0aba30add05f5b655", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aa0afc533d4a4387bb6aa32b5e4fe10e", async() => {
                     BeginContext(366, 4, true);
                     WriteLiteral("home");
                     EndContext();
@@ -96,7 +96,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                   </li>\r\n                   <li>\r\n                       ");
                 EndContext();
                 BeginContext(450, 60, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "372f477c942743efb76cfef71b657ae0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7406b3969a94d9c8b44f3596ee5e59c", async() => {
                     BeginContext(495, 11, true);
                     WriteLiteral("admin panel");
                     EndContext();

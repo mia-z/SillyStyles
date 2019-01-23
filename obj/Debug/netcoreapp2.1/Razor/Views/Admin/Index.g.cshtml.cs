@@ -53,7 +53,7 @@ namespace AspNetCore
             WriteLiteral("<h2>Admin panel home</h2>\r\n<br/>\r\n");
             EndContext();
             BeginContext(121, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aab1257073b646999d0a3e620f0521c4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ebd08bb268d4a6cb509f903926e195c", async() => {
                 BeginContext(169, 15, true);
                 WriteLiteral("Manage products");
                 EndContext();
