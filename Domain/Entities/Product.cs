@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace SillyStyles
+namespace SillyStyles.Domain.Entities
 {
     public class Product
     {
@@ -14,6 +14,8 @@ namespace SillyStyles
         public string Slug { get; set; }
 
         public List<Review> Reviews { get; set; } = new List<Review>();
+
+        public Category ProductCategory { get; set;}
 
         public Product(string title, string imageUrl, decimal price, string description)
         {

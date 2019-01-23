@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SillyStyles
+namespace SillyStyles.Domain.Entities
 {
     public class Review
     {

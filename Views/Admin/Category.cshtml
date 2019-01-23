@@ -1,0 +1,39 @@
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model SillyStyles.AddCategoryViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Products</h2>
+
+<form method="POST" class="add-category"
+action="/Admin/Category/">
+    <fieldset>
+        <span asp-validation-for="CategoryName"></span>
+        <label asp-for="CategoryName">Category Name</label>
+        <input asp-for="CategoryName">
+
+        <button type="sumit">Add</button>
+        <button type="reset">Reset</button>
+    </fieldset>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Category name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.CategoryList)
+        {
+            <tr>
+                <td>
+                    @c.CategoryName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

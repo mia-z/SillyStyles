@@ -1,7 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SillyStyles.Domain.Entities;
+
 namespace SillyStyles.Controllers
 {
     public class AdminController : Controller
@@ -18,29 +22,57 @@ namespace SillyStyles.Controllers
 
         public IActionResult Products() 
         {
-            var productValidation = new AddProductViewModel();
-            productValidation.Products = _context.Products.ToList();
+            var viewModel = new AddProductViewModel();
+            viewModel.Products = _context.Products.ToList();
+            viewModel.CategoryList = _context.Categories.ToList();
 
-            return View(productValidation);
+            return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Products(AddProductViewModel productValidation)
+        public IActionResult Products(AddProductViewModel viewModel)
         {
+            viewModel.CategoryList = _context.Categories.ToList();
             if (ModelState.IsValid)
             {
                 var prod = new Product(
-                    productValidation.Title,
-                    productValidation.ImageUrl,
-                    productValidation.Price,
-                    productValidation.Description
+                    viewModel.Title,
+                    viewModel.ImageUrl,
+                    viewModel.Price,
+                    viewModel.Description
                 );
+                Category catForProd = (Category) _context.Categories
+                .Where(x => x.CategoryName == viewModel.Category.CategoryName);
+                prod.ProductCategory = catForProd;
                 _context.Products.Add(prod);
                 _context.SaveChanges();
             }
 
-            productValidation.Products = _context.Products.ToList();
-            return View(productValidation);
+            viewModel.Products = _context.Products.ToList();
+            return View(viewModel);
+        }
+
+        public IActionResult Category()
+        {
+            var viewModel = new AddCategoryViewModel();
+            viewModel.CategoryList = _context.Categories.ToList();
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Category(AddCategoryViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var cat = new Category(
+                    viewModel.CategoryName
+                );
+                _context.Categories.Add(cat);
+                _context.SaveChanges();
+            }
+
+            viewModel.CategoryList = _context.Categories.ToList();
+            return View(viewModel);
         }
     }
 }

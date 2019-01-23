@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SillyStyles.Domain.Entities;
 
 namespace SillyStyles
 {
@@ -21,5 +22,6 @@ namespace SillyStyles
             });
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set;}
     }
 }
