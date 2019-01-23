@@ -1,0 +1,58 @@
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model SillyStyles.AddProductViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Products</h2>
+
+<form method="POST" class="add-product"
+action="/Admin/Products/">
+    <fieldset>
+        <span asp-validation-for="Title"></span>
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title">
+
+        <span asp-validation-for="ImageUrl"></span>
+        <label asp-for="ImageUrl">Image Url</label>
+        <input asp-for="ImageUrl">
+
+        <span asp-validation-for="Description"></span>
+        <label asp-for="Description">Description</label>
+        <textarea asp-for="Description"></textarea>
+
+        <span asp-validation-for="Price"></span>
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price">
+
+        <button type="sumit">Add</button>
+        <button type="reset">Reset</button>
+    </fieldset>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Products)
+        {
+            <tr>
+                <td>
+                    @p.Title
+                </td>
+                <td>
+                    @p.Price
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

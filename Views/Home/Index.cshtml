@@ -1,0 +1,19 @@
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using SillyStyles
+@model AddProductViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Home/Index</h2>
+<h4>Our Current products!</h4>
+<br/>
+<ul>
+@foreach (var p in Model.Products)
+{
+    <li>
+        <a asp-route="product" asp-route-slug="@p.Slug">@p.Title</a>
+    </li>
+}
+</ul>

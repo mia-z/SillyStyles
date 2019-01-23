@@ -1,0 +1,25 @@
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE=html>
+<html>
+   <head>
+      <link rel="stylesheet" href="\css\main.css">
+   </head>
+   <body>
+       <header>
+           <h1>Silly Styles!</h1>
+           <nav class="header-nav">
+               <ul>
+                   <li>
+                       <a asp-action="Index" asp-controller="Home">home</a>
+                   </li>
+                   <li>
+                       <a asp-action="Index" asp-controller="Admin">admin panel</a>
+                   </li>
+               </ul>
+           </nav>
+       </header>
+       <Main>
+        @RenderBody()
+       </Main>
+   </body>
+</html>

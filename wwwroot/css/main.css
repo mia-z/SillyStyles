@@ -1,0 +1,16 @@
+form.add-product label, form.add-product input, form.add-product textarea {
+    display: block;
+}
+
+fieldset {
+    display: inline;
+}
+
+.product-img {
+    height: 300px;
+    width: 300px;
+}
+
+.header-nav {
+    
+}
