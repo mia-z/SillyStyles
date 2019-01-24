@@ -1,4 +1,4 @@
-form.add-product label, form.add-product input, form.add-product textarea {
+form.add-product label, form.add-product input, form.add-product textarea, form.add-product .category-drop-down {
     display: block;
 }
 

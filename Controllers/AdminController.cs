@@ -23,9 +23,21 @@ namespace SillyStyles.Controllers
         public IActionResult Products() 
         {
             var viewModel = new AddProductViewModel();
-            viewModel.Products = _context.Products.ToList();
+            viewModel.Products = _context.Products
+            .Include(x => x.ProductCategory)
+            .ToList();
             viewModel.CategoryList = _context.Categories.ToList();
-
+            /*viewModel.CategoryListItems = new List<SelectListItem>();
+            Ugly method for dropdown list ECH
+            foreach(var c in viewModel.CategoryList)
+            {
+                viewModel.CategoryListItems.Add(
+                    new SelectListItem() {
+                        Text = c.CategoryName,
+                        Value = c.CategoryName
+                    }
+                );
+            }*/
             return View(viewModel);
         }
 
@@ -41,15 +53,15 @@ namespace SillyStyles.Controllers
                     viewModel.Price,
                     viewModel.Description
                 );
-                Category catForProd = (Category) _context.Categories
-                .Where(x => x.CategoryName == viewModel.Category.CategoryName);
-                prod.ProductCategory = catForProd;
+                prod.ProductCategory = viewModel.CategoryList
+                    .Where(x => x.CategoryName == viewModel.Category)
+                    .FirstOrDefault();
                 _context.Products.Add(prod);
                 _context.SaveChanges();
             }
 
             viewModel.Products = _context.Products.ToList();
-            return View(viewModel);
+            return RedirectToAction("Products");
         }
 
         public IActionResult Category()
@@ -72,7 +84,7 @@ namespace SillyStyles.Controllers
             }
 
             viewModel.CategoryList = _context.Categories.ToList();
-            return View(viewModel);
+            return RedirectToAction("Category");
         }
     }
 }

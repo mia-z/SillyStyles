@@ -5,17 +5,7 @@
     Layout = "_Layout";
 }
 
-<h2>Home/Index</h2>
-<h4>Our Current categories!</h4>
-<ul>
-@foreach (var p in Model.CategoryList)
-{
-    <li>
-        <a asp-route="category" asp-route-slug="@p.Slug">@p.CategoryName</a>
-    </li>
-}
-</ul>
-<br/>
+<h2>Products in @Model.CurrentPage category</h2>
 <ul>
 @foreach (var p in Model.Products)
 {

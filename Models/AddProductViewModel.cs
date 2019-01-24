@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SillyStyles.Domain.Entities;
 
 namespace SillyStyles
@@ -23,8 +24,11 @@ namespace SillyStyles
         [StringLength(500)]
         public string Description { get; set; }
 
-        public Category Category { get; set; }
+        [Required]
+        public string Category { get; set; }
         public List<Product> Products { get; set; }
         public List<Category> CategoryList { get; set; }
+        //public List<SelectListItem> CategoryListItems { get; set; }
+        //public string CategoryListText { get; set; }
     }
 }

@@ -12,8 +12,9 @@ namespace SillyStyles.Controllers
         }
         public IActionResult Index() 
         {
-            var ProductListFromDb = _context.Products.ToList();
-            var viewModel = new AddProductViewModel { Products = ProductListFromDb };
+            var viewModel = new DisplayCategoryViewModel();
+            viewModel.CategoryList = _context.Categories.ToList();
+            viewModel.Products = _context.Products.ToList();
             return View(viewModel);
         }
     }

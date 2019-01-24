@@ -28,14 +28,17 @@ action="/Admin/Products/">
 
         <span asp-validation-for="Category"></span>
         <label asp-for="Category">Product Category</label>
-        <select asp-for="Category">
+        @{/*@Html.DropDownListFor(x => Model.CategoryList, Model.CategoryListItems, "Select Category", htmlAttributes: new { @class="category-drop-down" })
+        This method does work.. I just can't get my forms to empty on reset and i cant figure out why. I tried switching between these two methods tho and that
+        did nothing*/}
+        <select asp-for="Category" class="category-drop-down">
+            <option value="">Select a category</option>
             @foreach (var c in Model.CategoryList)
             {
-                <option>@c.CategoryName</option>
+                <option value="@c.CategoryName">@c.CategoryName</option>
             }
         </select>
-
-        <button type="sumit">Add</button>
+        <button type="submit">Add</button>
         <button type="reset">Reset</button>
     </fieldset>
 </form>
@@ -48,6 +51,9 @@ action="/Admin/Products/">
             <th>
                 Price
             </th>
+            <th>
+                Category
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -59,6 +65,9 @@ action="/Admin/Products/">
                 </td>
                 <td>
                     @p.Price
+                </td>
+                <td>
+                    @p.ProductCategory.CategoryName
                 </td>
             </tr>
         }

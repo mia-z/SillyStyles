@@ -6,10 +6,12 @@ namespace SillyStyles.Domain.Entities
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
+        public string Slug { get; set; }
 
         public Category(string categoryName)
         {
             CategoryName = categoryName;
+            Slug = CategoryName.ToLower().Replace( ' ' , '-' );
         }
     }
 }

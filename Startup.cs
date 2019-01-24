@@ -37,6 +37,13 @@ namespace SillyStyles
                     template: "product/{Slug}",
                     defaults: new { Controller = "Product", Action = "Show" }
                 );
+
+                routes.MapRoute(
+                    name: "category",
+                    template: "category/{Slug}",
+                    defaults: new { Controller = "Category", Action = "Show" }
+                );
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}"
